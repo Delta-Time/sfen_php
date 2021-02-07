@@ -1,6 +1,4 @@
 <?php
-// l1+R5l/2pS5/p2pp+P1pp/2k3p2/2N4P1/PP2R1P1P/2+pPP1N2/2GSG1bs1/LN1K4L b 2GSNPbp 73
-
 // [0] = 画像名識別, [1] = 一般略表示, [2] = 一般名表示, [3] = sfen先手, [4] = sfen後手
 // 画像識別名: 後手(上下逆)は v を先頭につける。ファイル名は "v{TOKIN[0]}.png" など。
 const FU    = ["FU", "歩", "歩兵", "P", "p"];
