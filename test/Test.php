@@ -103,9 +103,10 @@ class Test extends TestCase
 
     }
 
-    function testSfen2Mochigoma(){
+    function testSfen2Mochigoma()
+    {
         $sfen = "ln1gkg1nl/6+P2/2sppps1p/2p3p2/p8/P1P1P3P/2NP1PP2/3s1KSR1/L1+b2G1NL w R2Pbgp 42";
-        $returns = [[HISHA,SENTE],[FU,SENTE],[FU,SENTE],[KAKU,GOTE],[KIN,GOTE],[FU,GOTE]];
+        $returns = [[HISHA, SENTE], [FU, SENTE], [FU, SENTE], [KAKU, GOTE], [KIN, GOTE], [FU, GOTE]];
 
         $this->assertEqualsCanonicalizing($returns, sfen2mochigoma($sfen));
     }
