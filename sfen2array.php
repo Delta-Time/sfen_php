@@ -98,3 +98,49 @@ function sfen2array($sfen){
         $caret += $skip_caret;
     }
 }
+
+function sfen2mochigoma($sfen){
+    $mochigoma_sfen = explode(" ", $sfen)[2];
+    $mochigoma = [];
+
+    if($mochigoma_sfen === "-"){
+        return [];
+    }
+
+    $caret = 0;
+
+    while(1){
+
+        if(strlen($mochigoma_sfen) <= $caret){
+            return $mochigoma;
+        }
+
+        $char = substr($mochigoma_sfen, $caret, 1);
+
+        if( preg_match("/\d/", $char) ){
+            // 2-18があるので先読みして確認
+            $n = 0;
+            if( preg_match("/\d{2}/",substr($mochigoma_sfen, $caret, 2)) ){
+                // 2桁
+                $n = intval(substr($mochigoma_sfen, $caret, 2));
+                $caret += 2;
+
+            }else{
+                // 1桁
+                $n = intval(substr($mochigoma_sfen, $caret, 1));
+                $caret += 1;
+
+            }
+            $char = substr($mochigoma_sfen, $caret, 1);
+            foreach (range(1,$n-1) as $_){
+//                print($char);
+                $mochigoma[] = char2code($char);
+            }
+        }else{
+            // 数字なし
+//            print($char);
+            $mochigoma[] = char2code($char);
+            $caret ++;
+        }
+    }
+}
